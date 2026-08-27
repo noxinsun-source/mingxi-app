@@ -175,10 +175,33 @@ async function refreshNotes(){
 function renderGrid(){
   $("#noteGrid").innerHTML=notes.map(n=>`<div class="note-card" data-id="${esc(n.id)}"><h4>${esc(n.title)}</h4><p class="sum">${esc(n.summary)}</p><div class="chips"><span class="chip domain">${esc(n.domain)}</span><span class="chip purpose">${esc(n.purpose)}</span>${(n.tags||[]).map(t=>`<span class="chip">${esc(t)}</span>`).join("")}</div><div class="card-actions"><button onclick="goLogic('${esc(n.id)}')">去梳逻辑 →</button><button onclick="goCompletion('${esc(n.id)}')">去知识补全 →</button></div></div>`).join("");
 }
+function polar(cx,cy,r,a){return [cx+r*Math.cos(a),cy+r*Math.sin(a)];}
+function arcPath(cx,cy,r0,r1,a0,a1){const[x0,y0]=polar(cx,cy,r1,a0);const[x1,y1]=polar(cx,cy,r1,a1);const[x2,y2]=polar(cx,cy,r0,a1);const[x3,y3]=polar(cx,cy,r0,a0);const large=a1-a0>Math.PI?1:0;return `M ${x0} ${y0} A ${r1} ${r1} 0 ${large} 1 ${x1} ${y1} L ${x2} ${y2} A ${r0} ${r0} 0 ${large} 0 ${x3} ${y3} Z`;}
+const SUN_COLORS=["#168765","#d18c72","#3d6ea5","#8a6fd1","#c98a2e","#2f7d57","#b25f6a","#5b8c5a","#7a6a4f","#4f7c9e"];
 function renderDomains(){
   const by={};for(const n of notes)(by[n.domain]=by[n.domain]||[]).push(n);
-  const blocks=Object.entries(by).sort((a,b)=>b[1].length-a[1].length);
-  $("#domainBlocks").innerHTML=blocks.map(([domain,list])=>`<div class="domain-block"><h3>${esc(domain)} <span style="color:#786f66;font-size:13px">（${list.length} 篇）</span></h3><div class="heat">${list.map(n=>`<span>📄 ${esc(n.title.slice(0,14))}</span>`).join("")}</div></div>`).join("")||`<p class="page-sub">还没有笔记。先去「① 笔记库」上传并分析。</p>`;
+  const domains=Object.entries(by).sort((a,b)=>b[1].length-a[1].length);
+  if(!domains.length){$("#domainBlocks").innerHTML=`<p class="page-sub">还没有笔记。先去「① 笔记库」上传并分析。</p>`;return}
+  const cx=360,cy=300,r1=160,r2=300,pad=0.012;
+  const total=notes.length;
+  let segs=[],da0=-Math.PI/2;
+  const domainAngles=[];
+  domains.forEach(([domain,list],di)=>{
+    const frac=list.length/total; const da=frac*2*Math.PI;
+    segs.push({path:arcPath(cx,cy,r1,r2,da0,da0+da-pad),fill:SUN_COLORS[di%SUN_COLORS.length],title:`${domain} · ${list.length} 篇`});
+    domainAngles.push([domain,da0,da0+da]);
+    let n0=da0;
+    list.forEach((n)=>{
+      const nf=1/list.length; const na=nf*(da-pad);
+      segs.push({path:arcPath(cx,cy,42,r1,n0,n0+na),fill:"#fff",title:`${n.title}（${domain}）`,stroke:"rgba(0,0,0,.08)"});
+      n0+=nf*da;
+    });
+    da0+=da;
+  });
+  segs.push({path:arcPath(cx,cy,0,42,0,2*Math.PI),fill:"#211f1c",title:`全部 ${total} 篇笔记`});
+  const svg=`<svg viewBox="0 0 720 620" style="width:100%;max-width:720px;height:auto">${segs.map(s=>`<path d="${s.path}" fill="${s.fill}" ${s.stroke?`stroke="${s.stroke}" stroke-width="1"`:""}><title>${esc(s.title)}</title></path>`).join("")}<text x="360" y="296" text-anchor="middle" fill="#fff" font-size="14" font-weight="700">全部</text><text x="360" y="316" text-anchor="middle" fill="#fff" font-size="12">${total} 篇</text></svg>`;
+  const legend=domains.map(([domain,list],di)=>`<span class="heat"><span style="display:inline-block;width:10px;height:10px;border-radius:50%;background:${SUN_COLORS[di%SUN_COLORS.length]}"></span> ${esc(domain)}（${list.length}）</span>`).join("");
+  $("#domainBlocks").innerHTML=`<div class="card-panel" style="text-align:center">${svg}</div><div class="row" style="justify-content:center">${legend}</div>`;
 }
 function renderSelectors(){
   const opts=notes.map((n)=>`<option value="${esc(n.id)}">${esc(n.title)}</option>`).join("");
