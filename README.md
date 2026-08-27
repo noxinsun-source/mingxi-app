@@ -9,7 +9,11 @@
 | ③ 梳逻辑（功能A） | 多轮对话驱动可编辑逻辑图 | ✅ 内嵌独立应用 [logic-chain-project-a](https://github.com/noxinsun-source/logic-chain-project-a) |
 | ④ 知识补全（功能B） | 笔记 → 可追溯、可切换粒度的知识网络 | ✅ 内嵌独立应用 [knowledge-completion](https://github.com/noxinsun-source/knowledge-completion) |
 
-核心原则不变：**领域交给 AI，用途由人点；笔记只发给你自己配置的模型**。API Key 保存在服务端本地配置文件（已 gitignore），不进仓库、不上传。
+核心原则不变：**领域交给 AI，用途由人点；笔记只发给你自己配置的模型**。API Key 按用户保存在服务端数据文件（已 gitignore），不进仓库、不上传。
+
+**四个页面联动同一个笔记库**：上传几十篇笔记后，① 是统一整理好的卡片库；② 是按领域聚合的结构；③④ 都可以从「选笔记」下拉或笔记卡片的「去梳逻辑 / 去知识补全」按钮选中某一篇真实笔记开始使用；未选笔记时 ③④ 显示半透明空白指引。
+
+**用户登录系统**：注册/登录（scrypt 加盐哈希 + token 会话），笔记与 API 配置按用户隔离，各人各库、各配各的 Key。
 
 ## 一、快速开始
 
@@ -41,6 +45,12 @@ npm ci && npm run dev
 ```
 
 回到「明晰」页面，在 ③④ 顶部把地址改成对应端口，点「打开」。若两个子应用与本服务同域部署，直接填公网地址即可。
+
+页面 ④「生成知识网络」会通过本服务**代理调用功能B 的 Run API**（`/api/featureb/run`，服务端转发、无跨域问题），返回 `runId` 后自动在 iframe 打开知识网络页。功能B 服务地址可用环境变量覆盖：
+
+```bash
+FEATURE_B_BASE_URL=http://localhost:4318 node server.mjs
+```
 
 > 说明：功能A / 功能B 是独立、可单独部署的完整应用（含 Agent 插件、评测、Docker/Cloudflare 部署），「明晰」是统一入口。若只想要笔记打标签 + 领域整理，只启动本仓库即可。
 

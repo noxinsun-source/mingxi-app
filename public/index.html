@@ -12,12 +12,9 @@ button{font:inherit;cursor:pointer}a{color:inherit;text-decoration:none}
 .top{display:flex;align-items:center;justify-content:space-between;gap:14px;padding:12px 0 18px;border-bottom:1px solid rgba(80,64,48,.12)}
 .brand{display:flex;align-items:center;gap:11px}.mark{width:40px;height:40px;border-radius:13px;background:#211f1c;color:#fff;display:grid;place-items:center;font-weight:800;letter-spacing:-.06em}
 .brand h1{margin:0;font:600 21px/1.1 Georgia,"Songti SC",serif}.brand small{display:block;color:var(--muted);font-size:11px}
-.pill{display:inline-flex;gap:6px;align-items:center;padding:7px 12px;border-radius:999px;background:var(--green-soft);color:var(--green);font-size:12px;font-weight:700}
-.pill.off{background:#f3e5d4;color:#8a4b12}
-.top-actions{display:flex;gap:8px}.ghost{border:1px solid var(--line);border-radius:999px;padding:8px 13px;background:rgba(255,253,250,.8);color:var(--ink)}
-.tabs{display:flex;gap:6px;margin:16px 0 0;flex-wrap:wrap}
-.tab{border:1px solid var(--line);border-radius:999px;padding:9px 16px;background:rgba(255,253,250,.7);color:var(--muted);font-weight:600;font-size:13px}
-.tab.on{background:#211f1c;color:#fff;border-color:#211f1c}
+.pill{display:inline-flex;gap:6px;align-items:center;padding:7px 12px;border-radius:999px;background:var(--green-soft);color:var(--green);font-size:12px;font-weight:700}.pill.off{background:#f3e5d4;color:#8a4b12}
+.top-actions{display:flex;gap:8px;align-items:center}.ghost{border:1px solid var(--line);border-radius:999px;padding:8px 13px;background:rgba(255,253,250,.8);color:var(--ink)}
+.tabs{display:flex;gap:6px;margin:16px 0 0;flex-wrap:wrap}.tab{border:1px solid var(--line);border-radius:999px;padding:9px 16px;background:rgba(255,253,250,.7);color:var(--muted);font-weight:600;font-size:13px}.tab.on{background:#211f1c;color:#fff;border-color:#211f1c}
 .panel{display:none;margin-top:20px}.panel.on{display:block}
 h2.page-title{font:600 26px/1.15 Georgia,"Songti SC",serif;margin:0 0 6px}.page-sub{color:var(--muted);font-size:13px;margin:0 0 18px}
 .card-panel{border:1px solid var(--line);border-radius:18px;background:var(--card);padding:20px;box-shadow:0 8px 28px rgba(54,40,26,.05)}
@@ -25,20 +22,19 @@ textarea{width:100%;border:1px solid var(--line);border-radius:12px;background:#
 input,select{border:1px solid var(--line);border-radius:10px;background:#fff;color:var(--ink);padding:10px 12px;font:inherit}
 .btn{border:0;border-radius:999px;padding:11px 18px;background:#211f1c;color:#fff;font-weight:700}.btn:disabled{opacity:.5;cursor:progress}.btn.ghost{border:1px solid var(--line);background:#fffdfa;color:var(--ink)}
 .row{display:flex;gap:10px;align-items:center;flex-wrap:wrap;margin-top:12px}
-.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));gap:14px;margin-top:16px}
-.note-card{border:1px solid var(--line);border-radius:16px;background:#fff;padding:15px 16px;box-shadow:0 6px 20px rgba(54,40,26,.05)}
-.note-card h4{margin:0 0 6px;font-size:15px}.note-card .sum{color:var(--muted);font-size:12.5px;line-height:1.6;margin:0 0 10px}
-.chips{display:flex;flex-wrap:wrap;gap:6px;margin:6px 0}
-.chip{font-size:11px;padding:3px 9px;border-radius:999px;background:var(--green-soft);color:var(--green);font-weight:700}
-.chip.purpose{background:#f5e6dc;color:#a35a3d}.chip.domain{background:#e7eef5;color:#3d6ea5}
-.domain-block{margin-bottom:18px}.domain-block h3{font:600 18px Georgia,"Songti SC",serif;margin:0 0 8px}.domain-bar{display:flex;gap:6px;flex-wrap:wrap}
-.heat{display:inline-flex;align-items:center;gap:8px;padding:6px 12px;border-radius:10px;background:#fff;border:1px solid var(--line);font-size:12px}
-.heat b{font-size:15px}
-.metric-row{display:flex;gap:14px;flex-wrap:wrap;margin-top:14px}
-.metric{flex:1;min-width:140px;border:1px solid var(--line);border-radius:14px;background:#fff;padding:14px}.metric b{display:block;font-size:26px}.metric span{color:var(--muted);font-size:12px}
-iframe.frame{width:100%;height:calc(100vh - 190px);border:1px solid var(--line);border-radius:16px;background:#fff;min-height:560px}
-.frame-hint{color:var(--muted);font-size:12px;margin-bottom:10px}
-.mask{position:fixed;inset:0;background:rgba(28,25,22,.5);display:none;place-items:center;padding:18px;z-index:50}.mask.on{display:grid}
+.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(300px,1fr));gap:14px;margin-top:16px}
+.note-card{border:1px solid var(--line);border-radius:16px;background:#fff;padding:15px 16px;box-shadow:0 6px 20px rgba(54,40,26,.05);display:flex;flex-direction:column}
+.note-card h4{margin:0 0 6px;font-size:15px}.note-card .sum{color:var(--muted);font-size:12.5px;line-height:1.6;margin:0 0 10px;flex:1}
+.chips{display:flex;flex-wrap:wrap;gap:6px;margin:6px 0}.chip{font-size:11px;padding:3px 9px;border-radius:999px;background:var(--green-soft);color:var(--green);font-weight:700}.chip.purpose{background:#f5e6dc;color:#a35a3d}.chip.domain{background:#e7eef5;color:#3d6ea5}
+.card-actions{display:flex;gap:6px;margin-top:8px}.card-actions button{flex:1;border:1px solid var(--line);border-radius:9px;background:#fffdfa;padding:7px 0;font-size:12px;font-weight:700}
+.domain-block{margin-bottom:18px}.domain-block h3{font:600 18px Georgia,"Songti SC",serif;margin:0 0 8px}.heat{display:flex;gap:8px;flex-wrap:wrap}.heat span{padding:6px 12px;border-radius:10px;background:#fff;border:1px solid var(--line);font-size:12px}
+.metric-row{display:flex;gap:14px;flex-wrap:wrap;margin-top:14px}.metric{flex:1;min-width:140px;border:1px solid var(--line);border-radius:14px;background:#fff;padding:14px}.metric b{display:block;font-size:26px}.metric span{color:var(--muted);font-size:12px}
+iframe.frame{width:100%;height:calc(100vh - 200px);border:1px solid var(--line);border-radius:16px;background:#fff;min-height:540px}
+.frame-hint{color:var(--muted);font-size:12px;margin-bottom:10px;display:flex;gap:8px;align-items:center;flex-wrap:wrap}
+.blank{position:relative;border:1px dashed var(--line);border-radius:16px;background:rgba(255,253,250,.4);min-height:420px;display:grid;place-items:center;padding:30px;text-align:center}
+.blank .inner{opacity:.38;color:var(--ink)}.blank h3{font:600 22px Georgia,"Songti SC",serif;margin:0 0 10px}.blank p{font-size:13px;line-height:1.7;max-width:360px;margin:0 auto}
+.selector-panel{border:1px solid var(--line);border-radius:14px;background:var(--card);padding:16px;margin-bottom:12px}
+.mask{position:fixed;inset:0;background:rgba(28,25,22,.55);display:none;place-items:center;padding:18px;z-index:60}.mask.on{display:grid}
 .modal{width:min(480px,100%);background:var(--card);border-radius:20px;padding:24px;box-shadow:0 30px 100px rgba(0,0,0,.3)}
 .modal h3{font:600 22px Georgia,"Songti SC",serif;margin:0 0 14px}
 .field{display:grid;gap:6px;margin:12px 0}.field span{font-size:12px;color:var(--muted);font-weight:600}
@@ -48,12 +44,14 @@ iframe.frame{width:100%;height:calc(100vh - 190px);border:1px solid var(--line);
 </style>
 </head>
 <body>
-<div class="app">
+<div class="app" id="app" style="display:none">
   <header class="top">
-    <div class="brand"><div class="mark">明晰</div><div><h1>明晰 Mingxi</h1><small>真实可运行版 · 笔记 → 标签 → 领域 → 逻辑 → 知识</small></div></div>
+    <div class="brand"><div class="mark">明晰</div><div><h1>明晰 Mingxi</h1><small>四个页面联动同一个笔记库</small></div></div>
     <div class="top-actions">
       <span class="pill off" id="cfgPill">未配置 API</span>
+      <span id="userTag" style="color:#786f66;font-size:12px"></span>
       <button class="ghost" id="openSettings">⚙ 设置 API</button>
+      <button class="ghost" id="logoutBtn">退出</button>
     </div>
   </header>
 
@@ -66,15 +64,15 @@ iframe.frame{width:100%;height:calc(100vh - 190px);border:1px solid var(--line);
 
   <section class="panel on" id="library">
     <h2 class="page-title">笔记库 · 批量上传与自动整理</h2>
-    <p class="page-sub">粘贴或上传多篇笔记，LLM 统一打标签、写摘要、归领域、标用途。文本只发给你配置的模型。</p>
+    <p class="page-sub">粘贴或上传多篇笔记，LLM 统一打标签、写摘要、归领域、标用途。整理后可从卡片一键跳转到③梳逻辑或④知识补全。</p>
     <div class="card-panel">
-      <textarea id="pasteBox" rows="6" placeholder="粘贴一篇或多篇笔记。用 Markdown 标题（# / ##）区分多篇，例如：&#10;&#10;# Transformer 论文要点&#10;Transformer 由多头自注意力、位置编码与前馈网络堆叠而成……&#10;&#10;# 手冲咖啡萃取&#10;研磨度、水温、粉水比与萃取时间决定萃取质量……"></textarea>
+      <textarea id="pasteBox" rows="6" placeholder="粘贴一篇或多篇笔记，用 # / ## 标题区分多篇。"></textarea>
       <div class="row">
         <button class="btn" id="analyzeBtn">⚡ 交给 LLM 分析整理</button>
         <button class="btn ghost" id="clearBtn">清空笔记库</button>
         <label class="btn ghost" style="position:relative">上传文件<input id="fileInput" type="file" multiple accept=".md,.txt,.markdown,text/markdown,text/plain" style="position:absolute;inset:0;opacity:0;cursor:pointer"></label>
       </div>
-      <p class="hint">上传 .md / .txt 文件（可多选），或直接粘贴。分析结果会持久化在服务端本地，刷新不丢。</p>
+      <p class="hint">上传 .md/.txt（可多选）或直接粘贴。结果持久化在服务端，刷新不丢。</p>
       <div class="err" id="libraryErr"></div>
     </div>
     <div class="metric-row" id="stats" style="display:none">
@@ -85,75 +83,137 @@ iframe.frame{width:100%;height:calc(100vh - 190px);border:1px solid var(--line);
   </section>
 
   <section class="panel" id="domains">
-    <h2 class="page-title">领域全景 · 从碎片到结构</h2>
-    <p class="page-sub">按 LLM 打出的领域自动聚合，看见积累集中区与空白区。</p>
+    <h2 class="page-title">领域全景 · 基于 LLM 分类的结构</h2>
+    <p class="page-sub">按领域自动聚合，看见知识库结构。</p>
     <div id="domainBlocks"></div>
   </section>
 
   <section class="panel" id="logic">
     <h2 class="page-title">梳逻辑 · 功能A</h2>
-    <p class="page-sub">左侧多轮对话、右侧可编辑逻辑图。独立应用，需单独启动（见 README）。</p>
-    <div class="frame-hint">功能A 服务地址：<input id="faUrl" value="http://localhost:3001" style="width:240px;margin-left:6px"> <button class="btn ghost" id="faGo">打开</button></div>
-    <iframe class="frame" id="faFrame" src="http://localhost:3001" title="功能A 逻辑链梳理"></iframe>
+    <p class="page-sub">从笔记库选一篇，进入多轮对话驱动的可编辑逻辑图。</p>
+    <div class="selector-panel">
+      <div class="row"><b>选择要梳理的笔记</b><select id="logicNoteSel"></select><button class="btn" id="logicOpen">在功能A打开</button></div>
+      <p class="hint" id="logicNoteHint" style="display:none"></p>
+    </div>
+    <div class="frame-hint">功能A 服务地址：<input id="faUrl" value="http://localhost:3001" style="width:220px"> <button class="btn ghost" id="faGo">刷新</button></div>
+    <div id="logicBody"></div>
   </section>
 
   <section class="panel" id="completion">
     <h2 class="page-title">知识补全 · 功能B</h2>
-    <p class="page-sub">从笔记出发生成可追溯、可切换粒度的知识网络。独立应用，需单独启动（见 README）。</p>
-    <div class="frame-hint">功能B 服务地址：<input id="fbUrl" value="http://localhost:4318" style="width:240px;margin-left:6px"> <button class="btn ghost" id="fbGo">打开</button></div>
-    <iframe class="frame" id="fbFrame" src="http://localhost:4318" title="功能B 知识补全"></iframe>
+    <p class="page-sub">从笔记库选一篇，真实生成可追溯、可切换粒度的知识网络。</p>
+    <div class="selector-panel">
+      <div class="row"><b>选择要补全的笔记</b><select id="fbNoteSel"></select><button class="btn" id="fbRun">⚡ 生成知识网络</button></div>
+      <p class="hint" id="fbNoteHint" style="display:none"></p>
+    </div>
+    <div class="frame-hint">功能B 服务地址：<input id="fbUrl" value="http://localhost:4318" style="width:220px"> <button class="btn ghost" id="fbGo">刷新</button></div>
+    <div id="completionBody"></div>
   </section>
+</div>
+
+<div class="mask on" id="authMask">
+  <div class="modal">
+    <h3>登录 明晰</h3>
+    <div class="field"><span>用户名</span><input id="loginUser" placeholder="用户名"></div>
+    <div class="field"><span>密码</span><input id="loginPass" type="password" placeholder="密码"></div>
+    <div class="row"><button class="btn" id="loginBtn">登录</button><button class="btn ghost" id="registerBtn">注册新账号</button></div>
+    <p class="hint">首次使用请先注册。账号与笔记数据按用户隔离；密码用 scrypt 加盐哈希存储。</p>
+    <div class="err" id="authErr"></div>
+  </div>
 </div>
 
 <div class="mask" id="settingsMask">
   <div class="modal">
-    <h3>⚙ API 设置</h3>
-    <div class="field"><span>Base URL（OpenAI-compatible）</span><input id="cfgBaseUrl" placeholder="https://api.deepseek.com"></div>
+    <h3>⚙ API 设置（你自己的模型 Key）</h3>
+    <div class="field"><span>Base URL</span><input id="cfgBaseUrl" placeholder="https://api.deepseek.com"></div>
     <div class="field"><span>模型名称</span><input id="cfgModel" placeholder="deepseek-chat"></div>
     <div class="field"><span>API Key</span><input id="cfgKey" type="password" placeholder="sk-…"></div>
-    <p class="hint">支持 DeepSeek / OpenAI / 硅基流动 / OpenRouter / 本地 Ollama(<code>http://127.0.0.1:11434/v1</code>) 等任意 OpenAI-compatible 端点。Key 保存在服务端本地配置文件（已 gitignore）。</p>
-    <div class="row">
-      <button class="btn" id="saveCfg">保存并测试</button>
-      <button class="btn ghost" id="closeSettings">取消</button>
-    </div>
+    <p class="hint">支持 DeepSeek / OpenAI / 硅基流动 / OpenRouter / 本地 Ollama 等任意 OpenAI-compatible 端点。Key 按用户保存在服务端。</p>
+    <div class="row"><button class="btn" id="saveCfg">保存</button><button class="btn ghost" id="closeSettings">取消</button></div>
     <div class="ok" id="cfgOk"></div><div class="err" id="cfgErr"></div>
   </div>
 </div>
 
 <script>
 const $=s=>document.querySelector(s);
-let notes=[];
 const esc=s=>String(s??"").replace(/[&<>"]/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c]));
-
+let notes=[], token=localStorage.getItem("mingxi_token")||"", username="";
 async function api(path,opts={}){
-  const r=await fetch(path,{headers:{"content-type":"application/json"},...opts});
+  const r=await fetch(path,{headers:{"content-type":"application/json",...(token?{authorization:"Bearer "+token}:{})},...opts});
   const d=await r.json().catch(()=>({}));
   if(!r.ok) throw new Error(d.error||`HTTP ${r.status}`);
   return d;
 }
-async function refreshHealth(){
-  try{const h=await api("/api/health");const pill=$("#cfgPill");pill.textContent=h.configured?`● ${h.model} 已接入`:"未配置 API";pill.className="pill "+(h.configured?"":"off");}catch{}
+function blankHTML(title,desc){return `<div class="blank"><div class="inner"><h3>${title}</h3><p>${desc}</p></div></div>`}
+
+async function init(){
+  if(!token){showAuth();return}
+  try{const me=await api("/api/auth/me");username=me.username;if(!username){localStorage.removeItem("mingxi_token");token="";showAuth();return}
+    $("#userTag").textContent=username;$("#app").style.display="block";$("#authMask").classList.remove("on");await refreshNotes();await refreshCfg();}catch(e){showAuth();}
 }
+function showAuth(){$("#authMask").classList.add("on");$("#app").style.display="none";}
+
+async function doAuth(path){
+  const u=$("#loginUser").value.trim(),p=$("#loginPass").value;$("#authErr").textContent="";
+  try{const r=await fetch(path,{method:"POST",headers:{"content-type":"application/json"},body:JSON.stringify({username:u,password:p})});
+    const d=await r.json().catch(()=>({}));if(!r.ok)throw new Error(d.error||"失败");
+    if(d.token){token=d.token;localStorage.setItem("mingxi_token",token);}
+    $("#loginPass").value="";await init();}catch(e){$("#authErr").textContent=e.message;}
+}
+$("#loginBtn").onclick=()=>doAuth("/api/auth/login");
+$("#registerBtn").onclick=()=>doAuth("/api/auth/register");
+$("#logoutBtn").onclick=async()=>{try{await api("/api/auth/logout",{method:"POST"});}catch{}localStorage.removeItem("mingxi_token");token="";username="";showAuth();};
+
 async function refreshCfg(){
-  const c=await api("/api/config");
-  $("#cfgBaseUrl").value=c.baseUrl;$("#cfgModel").value=c.model;$("#cfgKey").placeholder=c.hasKey?`已保存（${c.keyPreview}，留空则不修改）`:"sk-…";
+  try{const c=await api("/api/config");$("#cfgBaseUrl").value=c.baseUrl;$("#cfgModel").value=c.model;$("#cfgKey").placeholder=c.hasKey?`已保存(${c.keyPreview}，留空不修改)`:"sk-…";$("#cfgPill").textContent=c.hasKey?"● 已接入":"未配置";$("#cfgPill").className="pill "+(c.hasKey?"":"off");}catch{}
 }
 async function refreshNotes(){
-  const d=await api("/api/notes");notes=d.notes;
-  $("#stats").style.display=notes.length?"flex":"none";
-  $("#statCount").textContent=notes.length;
-  $("#statDomain").textContent=new Set(notes.map(n=>n.domain)).size;
-  renderGrid();renderDomains();
+  try{const d=await api("/api/notes");notes=d.notes;}catch{notes=[];}
+  $("#stats").style.display=notes.length?"flex":"none";$("#statCount").textContent=notes.length;$("#statDomain").textContent=new Set(notes.map(n=>n.domain)).size;
+  renderGrid();renderDomains();renderSelectors();
 }
 function renderGrid(){
-  const el=$("#noteGrid");
-  el.innerHTML=notes.map(n=>`<div class="note-card"><h4>${esc(n.title)}</h4><p class="sum">${esc(n.summary)}</p><div class="chips"><span class="chip domain">${esc(n.domain)}</span><span class="chip purpose">${esc(n.purpose)}</span>${(n.tags||[]).map(t=>`<span class="chip">${esc(t)}</span>`).join("")}</div></div>`).join("");
+  $("#noteGrid").innerHTML=notes.map(n=>`<div class="note-card" data-id="${esc(n.id)}"><h4>${esc(n.title)}</h4><p class="sum">${esc(n.summary)}</p><div class="chips"><span class="chip domain">${esc(n.domain)}</span><span class="chip purpose">${esc(n.purpose)}</span>${(n.tags||[]).map(t=>`<span class="chip">${esc(t)}</span>`).join("")}</div><div class="card-actions"><button onclick="goLogic('${esc(n.id)}')">去梳逻辑 →</button><button onclick="goCompletion('${esc(n.id)}')">去知识补全 →</button></div></div>`).join("");
 }
 function renderDomains(){
   const by={};for(const n of notes)(by[n.domain]=by[n.domain]||[]).push(n);
   const blocks=Object.entries(by).sort((a,b)=>b[1].length-a[1].length);
   $("#domainBlocks").innerHTML=blocks.map(([domain,list])=>`<div class="domain-block"><h3>${esc(domain)} <span style="color:#786f66;font-size:13px">（${list.length} 篇）</span></h3><div class="heat">${list.map(n=>`<span>📄 ${esc(n.title.slice(0,14))}</span>`).join("")}</div></div>`).join("")||`<p class="page-sub">还没有笔记。先去「① 笔记库」上传并分析。</p>`;
 }
+function renderSelectors(){
+  const opts=notes.map((n)=>`<option value="${esc(n.id)}">${esc(n.title)}</option>`).join("");
+  $("#logicNoteSel").innerHTML=opts;$("#fbNoteSel").innerHTML=opts;
+  $("#logicBody").innerHTML=blankHTML("还没有选择笔记","先从上方下拉选择一篇，或到「① 笔记库」整理好笔记后再来。");
+  $("#completionBody").innerHTML=blankHTML("还没有选择笔记","从上方选择一篇真实笔记，点「生成知识网络」，功能B 会用真实模型做多跳知识扩散。");
+}
+function noteById(id){return notes.find(n=>n.id===id);}
+
+window.goLogic=function(id){switchTab("logic");$("#logicNoteSel").value=id;$("#logicOpen").click();};
+window.goCompletion=function(id){switchTab("completion");$("#fbNoteSel").value=id;$("#fbRun").click();};
+function switchTab(page){document.querySelectorAll(".tab").forEach(t=>t.classList.toggle("on",t.dataset.page===page));document.querySelectorAll(".panel").forEach(p=>p.classList.remove("on"));$("#"+page).classList.add("on");}
+document.querySelectorAll(".tab").forEach(t=>t.onclick=()=>switchTab(t.dataset.page));
+
+$("#logicNoteSel").onchange=()=>{const n=noteById($("#logicNoteSel").value);$("#logicNoteHint").style.display=n?"block":"none";if(n)$("#logicNoteHint").innerHTML=`<b>${esc(n.title)}</b> · ${esc(n.domain)} · ${esc(n.summary)}`;};
+$("#logicOpen").onclick=()=>{
+  const n=noteById($("#logicNoteSel").value);
+  if(!n){return}
+  const url=$("#faUrl").value.trim();
+  $("#logicBody").innerHTML=`<iframe class="frame" src="${esc(url)}" title="功能A"></iframe>`;
+  setTimeout(()=>{try{document.querySelector("#logicBody iframe").contentWindow.postMessage({type:"mingxi-seed-note",note:n},"*");}catch{}},1500);
+};
+$("#faGo").onclick=()=>{const f=$("#logicBody iframe");if(f)f.src=$("#faUrl").value.trim();};
+
+$("#fbNoteSel").onchange=()=>{const n=noteById($("#fbNoteSel").value);$("#fbNoteHint").style.display=n?"block":"none";if(n)$("#fbNoteHint").innerHTML=`<b>${esc(n.title)}</b> · ${esc(n.domain)} · ${esc(n.summary)}`;};
+$("#fbRun").onclick=async()=>{
+  const n=noteById($("#fbNoteSel").value);
+  if(!n){return}
+  const btn=$("#fbRun");btn.disabled=true;btn.textContent="真实模型正在扩散…";
+  try{
+    const r=await api("/api/featureb/run",{method:"POST",body:JSON.stringify({note:n,goal:"系统理解这篇笔记并找到下一步知识缺口",granularity:4,hops:2,maxNodes:30})});
+    $("#completionBody").innerHTML=`<iframe class="frame" src="${esc(r.dashboardUrl)}" title="功能B"></iframe>`;
+  }catch(e){alert(e.message);}finally{btn.disabled=false;btn.textContent="⚡ 生成知识网络";}
+};
+$("#fbGo").onclick=()=>{const f=$("#completionBody iframe");if(f)f.src=$("#fbUrl").value.trim();};
 
 async function analyzePasted(){
   const text=$("#pasteBox").value.trim();$("#libraryErr").textContent="";
@@ -161,31 +221,18 @@ async function analyzePasted(){
   const parts=text.split(/^#{1,3}\s+/m).filter(Boolean);
   const items=(/^#{1,3}\s+/m.test(text)&&parts.length>1)?parts.map((p,i)=>{const nl=p.indexOf("\n");const title=nl>0?p.slice(0,nl).trim():`笔记 ${i+1}`;const content=nl>0?p.slice(nl+1).trim():p.trim();return{id:`paste_${Date.now()}_${i}`,title,content};}).filter(x=>x.content):[{id:`paste_${Date.now()}_0`,title:"",content:text}];
   const btn=$("#analyzeBtn");btn.disabled=true;btn.textContent="LLM 正在分析整理…";
-  try{
-    const r=await api("/api/notes/analyze",{method:"POST",body:JSON.stringify({notes:items})});
-    notes=r.notes;refreshNotes();$("#pasteBox").value="";
-  }catch(e){$("#libraryErr").textContent=e.message;}finally{btn.disabled=false;btn.textContent="⚡ 交给 LLM 分析整理";}
+  try{const r=await api("/api/notes/analyze",{method:"POST",body:JSON.stringify({notes:items})});notes=r.notes;refreshNotes();$("#pasteBox").value="";}catch(e){$("#libraryErr").textContent=e.message;}finally{btn.disabled=false;btn.textContent="⚡ 交给 LLM 分析整理";}
 }
-async function handleFiles(files){
-  const items=[];for(const f of files){items.push({id:`file_${f.name}`,title:f.name.replace(/\.(md|txt|markdown)$/i,""),content:await f.text()});}
-  if(!items.length)return;
-  const btn=$("#analyzeBtn");btn.disabled=true;btn.textContent=`LLM 正在分析 ${items.length} 篇…`;
-  try{const r=await api("/api/notes/analyze",{method:"POST",body:JSON.stringify({notes:items})});notes=r.notes;refreshNotes();}
-  catch(e){$("#libraryErr").textContent=e.message;}finally{btn.disabled=false;btn.textContent="⚡ 交给 LLM 分析整理";}
-}
+async function handleFiles(files){const items=[];for(const f of files){items.push({id:`file_${f.name}`,title:f.name.replace(/\.(md|txt|markdown)$/i,""),content:await f.text()});}if(!items.length)return;const btn=$("#analyzeBtn");btn.disabled=true;btn.textContent=`LLM 正在分析 ${items.length} 篇…`;try{const r=await api("/api/notes/analyze",{method:"POST",body:JSON.stringify({notes:items})});notes=r.notes;refreshNotes();}catch(e){$("#libraryErr").textContent=e.message;}finally{btn.disabled=false;btn.textContent="⚡ 交给 LLM 分析整理";}}
 
-// tabs
-document.querySelectorAll(".tab").forEach(t=>t.onclick=()=>{document.querySelectorAll(".tab").forEach(x=>x.classList.toggle("on",x===t));document.querySelectorAll(".panel").forEach(p=>p.classList.remove("on"));$("#"+t.dataset.page).classList.add("on");});
 $("#analyzeBtn").onclick=analyzePasted;
 $("#clearBtn").onclick=async()=>{if(confirm("清空所有笔记？")){await api("/api/notes/clear",{method:"POST"});refreshNotes();}};
 $("#fileInput").onchange=e=>{handleFiles([...e.target.files]);e.target.value="";};
 $("#openSettings").onclick=()=>{$("#settingsMask").classList.add("on");refreshCfg();};
 $("#closeSettings").onclick=()=>$("#settingsMask").classList.remove("on");
-$("#saveCfg").onclick=async()=>{$("#cfgOk").textContent="";$("#cfgErr").textContent="";try{await api("/api/config",{method:"POST",body:JSON.stringify({baseUrl:$("#cfgBaseUrl").value.trim(),model:$("#cfgModel").value.trim(),apiKey:$("#cfgKey").value.trim()})});await refreshHealth();$("#cfgOk").textContent="已保存";$("#cfgKey").value="";setTimeout(()=>$("#settingsMask").classList.remove("on"),700);}catch(e){$("#cfgErr").textContent=e.message;}};
-$("#faGo").onclick=()=>$("#faFrame").src=$("#faUrl").value.trim();
-$("#fbGo").onclick=()=>$("#fbFrame").src=$("#fbUrl").value.trim();
+$("#saveCfg").onclick=async()=>{$("#cfgOk").textContent="";$("#cfgErr").textContent="";try{await api("/api/config",{method:"POST",body:JSON.stringify({baseUrl:$("#cfgBaseUrl").value.trim(),model:$("#cfgModel").value.trim(),apiKey:$("#cfgKey").value.trim()})});await refreshCfg();$("#cfgOk").textContent="已保存";$("#cfgKey").value="";}catch(e){$("#cfgErr").textContent=e.message;}};
 
-refreshHealth();refreshNotes();
+init();
 </script>
 </body>
 </html>

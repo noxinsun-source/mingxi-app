@@ -1,4 +1,5 @@
 node_modules/
+.mingxi-data.json
 .mingxi-config.json
 .mingxi-notes.json
 .DS_Store
