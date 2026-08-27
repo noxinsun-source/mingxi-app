@@ -1,0 +1,19 @@
+0 verbose cli /opt/homebrew/Cellar/node/25.9.0_1/bin/node /opt/homebrew/bin/npm
+1 info using npm@11.12.1
+2 info using node@v25.9.0
+3 silly config load:file:/opt/homebrew/lib/node_modules/npm/npmrc
+4 silly config load:file:/Users/mizi/Desktop/oppo训练营_孙米子_AI智能笔记最终提交-9附件上传版/_work/mingxi/.npmrc
+5 silly config load:file:/Users/mizi/.npmrc
+6 silly config load:file:/opt/homebrew/etc/npmrc
+7 verbose title npm view @cloudbase/cli version
+8 verbose argv "view" "@cloudbase/cli" "version" "--cache" "/Users/mizi/Desktop/oppo训练营_孙米子_AI智能笔记最终提交-9附件上传版/_work/mingxi/.npm-cache"
+9 verbose logfile logs-max:10 dir:/Users/mizi/Desktop/oppo训练营_孙米子_AI智能笔记最终提交-9附件上传版/_work/mingxi/.npm-cache/_logs/2026-08-27T14_08_07_803Z-
+10 verbose logfile /Users/mizi/Desktop/oppo训练营_孙米子_AI智能笔记最终提交-9附件上传版/_work/mingxi/.npm-cache/_logs/2026-08-27T14_08_07_803Z-debug-0.log
+11 silly logfile done cleaning log files
+12 http fetch GET 200 https://registry.npmjs.org/@cloudbase%2fcli 671ms (cache revalidated)
+13 verbose cwd /Users/mizi/Desktop/oppo训练营_孙米子_AI智能笔记最终提交-9附件上传版/_work/mingxi
+14 verbose os Darwin 24.3.0
+15 verbose node v25.9.0
+16 verbose npm  v11.12.1
+17 verbose exit 0
+18 info ok
