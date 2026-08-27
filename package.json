@@ -1,0 +1,12 @@
+{
+  "name": "mingxi",
+  "version": "1.0.0",
+  "description": "明晰 Mingxi · 真实可运行的统一笔记产品（笔记库+领域+梳逻辑+知识补全）",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "dev": "node server.mjs",
+    "start": "node server.mjs"
+  },
+  "engines": { "node": ">=18" }
+}

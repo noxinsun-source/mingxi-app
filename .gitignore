@@ -1,0 +1,4 @@
+node_modules/
+.mingxi-config.json
+.mingxi-notes.json
+.DS_Store

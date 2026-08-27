@@ -1,0 +1,191 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>明晰 Mingxi · 真实版</title>
+<style>
+:root{--ink:#211f1c;--muted:#786f66;--paper:#f7f2eb;--card:#fffdfa;--line:#e4dcd2;--green:#168765;--green-soft:#e4f1ea;--peach:#d18c72;--danger:#b2403f}
+*{box-sizing:border-box}body{margin:0;min-height:100vh;background:radial-gradient(circle at 8% 0%,#e4eee8 0,transparent 38%),linear-gradient(145deg,#f5efe7,#fbfaf7 52%,#e9f0ec);color:var(--ink);font-family:-apple-system,BlinkMacSystemFont,"PingFang SC","Hiragino Sans GB","Microsoft YaHei",sans-serif}
+button{font:inherit;cursor:pointer}a{color:inherit;text-decoration:none}
+.app{max-width:1200px;margin:0 auto;padding:18px 20px 60px}
+.top{display:flex;align-items:center;justify-content:space-between;gap:14px;padding:12px 0 18px;border-bottom:1px solid rgba(80,64,48,.12)}
+.brand{display:flex;align-items:center;gap:11px}.mark{width:40px;height:40px;border-radius:13px;background:#211f1c;color:#fff;display:grid;place-items:center;font-weight:800;letter-spacing:-.06em}
+.brand h1{margin:0;font:600 21px/1.1 Georgia,"Songti SC",serif}.brand small{display:block;color:var(--muted);font-size:11px}
+.pill{display:inline-flex;gap:6px;align-items:center;padding:7px 12px;border-radius:999px;background:var(--green-soft);color:var(--green);font-size:12px;font-weight:700}
+.pill.off{background:#f3e5d4;color:#8a4b12}
+.top-actions{display:flex;gap:8px}.ghost{border:1px solid var(--line);border-radius:999px;padding:8px 13px;background:rgba(255,253,250,.8);color:var(--ink)}
+.tabs{display:flex;gap:6px;margin:16px 0 0;flex-wrap:wrap}
+.tab{border:1px solid var(--line);border-radius:999px;padding:9px 16px;background:rgba(255,253,250,.7);color:var(--muted);font-weight:600;font-size:13px}
+.tab.on{background:#211f1c;color:#fff;border-color:#211f1c}
+.panel{display:none;margin-top:20px}.panel.on{display:block}
+h2.page-title{font:600 26px/1.15 Georgia,"Songti SC",serif;margin:0 0 6px}.page-sub{color:var(--muted);font-size:13px;margin:0 0 18px}
+.card-panel{border:1px solid var(--line);border-radius:18px;background:var(--card);padding:20px;box-shadow:0 8px 28px rgba(54,40,26,.05)}
+textarea{width:100%;border:1px solid var(--line);border-radius:12px;background:#fff;color:var(--ink);padding:12px;font:inherit;line-height:1.6;resize:vertical}
+input,select{border:1px solid var(--line);border-radius:10px;background:#fff;color:var(--ink);padding:10px 12px;font:inherit}
+.btn{border:0;border-radius:999px;padding:11px 18px;background:#211f1c;color:#fff;font-weight:700}.btn:disabled{opacity:.5;cursor:progress}.btn.ghost{border:1px solid var(--line);background:#fffdfa;color:var(--ink)}
+.row{display:flex;gap:10px;align-items:center;flex-wrap:wrap;margin-top:12px}
+.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));gap:14px;margin-top:16px}
+.note-card{border:1px solid var(--line);border-radius:16px;background:#fff;padding:15px 16px;box-shadow:0 6px 20px rgba(54,40,26,.05)}
+.note-card h4{margin:0 0 6px;font-size:15px}.note-card .sum{color:var(--muted);font-size:12.5px;line-height:1.6;margin:0 0 10px}
+.chips{display:flex;flex-wrap:wrap;gap:6px;margin:6px 0}
+.chip{font-size:11px;padding:3px 9px;border-radius:999px;background:var(--green-soft);color:var(--green);font-weight:700}
+.chip.purpose{background:#f5e6dc;color:#a35a3d}.chip.domain{background:#e7eef5;color:#3d6ea5}
+.domain-block{margin-bottom:18px}.domain-block h3{font:600 18px Georgia,"Songti SC",serif;margin:0 0 8px}.domain-bar{display:flex;gap:6px;flex-wrap:wrap}
+.heat{display:inline-flex;align-items:center;gap:8px;padding:6px 12px;border-radius:10px;background:#fff;border:1px solid var(--line);font-size:12px}
+.heat b{font-size:15px}
+.metric-row{display:flex;gap:14px;flex-wrap:wrap;margin-top:14px}
+.metric{flex:1;min-width:140px;border:1px solid var(--line);border-radius:14px;background:#fff;padding:14px}.metric b{display:block;font-size:26px}.metric span{color:var(--muted);font-size:12px}
+iframe.frame{width:100%;height:calc(100vh - 190px);border:1px solid var(--line);border-radius:16px;background:#fff;min-height:560px}
+.frame-hint{color:var(--muted);font-size:12px;margin-bottom:10px}
+.mask{position:fixed;inset:0;background:rgba(28,25,22,.5);display:none;place-items:center;padding:18px;z-index:50}.mask.on{display:grid}
+.modal{width:min(480px,100%);background:var(--card);border-radius:20px;padding:24px;box-shadow:0 30px 100px rgba(0,0,0,.3)}
+.modal h3{font:600 22px Georgia,"Songti SC",serif;margin:0 0 14px}
+.field{display:grid;gap:6px;margin:12px 0}.field span{font-size:12px;color:var(--muted);font-weight:600}
+.err{color:var(--danger);font-size:12px;margin-top:8px}.ok{color:var(--green);font-size:12px;margin-top:8px}
+.hint{font-size:11px;color:var(--muted);margin-top:10px;line-height:1.6}
+@media(max-width:720px){.grid{grid-template-columns:1fr}}
+</style>
+</head>
+<body>
+<div class="app">
+  <header class="top">
+    <div class="brand"><div class="mark">明晰</div><div><h1>明晰 Mingxi</h1><small>真实可运行版 · 笔记 → 标签 → 领域 → 逻辑 → 知识</small></div></div>
+    <div class="top-actions">
+      <span class="pill off" id="cfgPill">未配置 API</span>
+      <button class="ghost" id="openSettings">⚙ 设置 API</button>
+    </div>
+  </header>
+
+  <nav class="tabs">
+    <button class="tab on" data-page="library">① 笔记库</button>
+    <button class="tab" data-page="domains">② 领域全景</button>
+    <button class="tab" data-page="logic">③ 梳逻辑（功能A）</button>
+    <button class="tab" data-page="completion">④ 知识补全（功能B）</button>
+  </nav>
+
+  <section class="panel on" id="library">
+    <h2 class="page-title">笔记库 · 批量上传与自动整理</h2>
+    <p class="page-sub">粘贴或上传多篇笔记，LLM 统一打标签、写摘要、归领域、标用途。文本只发给你配置的模型。</p>
+    <div class="card-panel">
+      <textarea id="pasteBox" rows="6" placeholder="粘贴一篇或多篇笔记。用 Markdown 标题（# / ##）区分多篇，例如：&#10;&#10;# Transformer 论文要点&#10;Transformer 由多头自注意力、位置编码与前馈网络堆叠而成……&#10;&#10;# 手冲咖啡萃取&#10;研磨度、水温、粉水比与萃取时间决定萃取质量……"></textarea>
+      <div class="row">
+        <button class="btn" id="analyzeBtn">⚡ 交给 LLM 分析整理</button>
+        <button class="btn ghost" id="clearBtn">清空笔记库</button>
+        <label class="btn ghost" style="position:relative">上传文件<input id="fileInput" type="file" multiple accept=".md,.txt,.markdown,text/markdown,text/plain" style="position:absolute;inset:0;opacity:0;cursor:pointer"></label>
+      </div>
+      <p class="hint">上传 .md / .txt 文件（可多选），或直接粘贴。分析结果会持久化在服务端本地，刷新不丢。</p>
+      <div class="err" id="libraryErr"></div>
+    </div>
+    <div class="metric-row" id="stats" style="display:none">
+      <div class="metric"><b id="statCount">0</b><span>已整理笔记</span></div>
+      <div class="metric"><b id="statDomain">0</b><span>覆盖领域</span></div>
+    </div>
+    <div class="grid" id="noteGrid"></div>
+  </section>
+
+  <section class="panel" id="domains">
+    <h2 class="page-title">领域全景 · 从碎片到结构</h2>
+    <p class="page-sub">按 LLM 打出的领域自动聚合，看见积累集中区与空白区。</p>
+    <div id="domainBlocks"></div>
+  </section>
+
+  <section class="panel" id="logic">
+    <h2 class="page-title">梳逻辑 · 功能A</h2>
+    <p class="page-sub">左侧多轮对话、右侧可编辑逻辑图。独立应用，需单独启动（见 README）。</p>
+    <div class="frame-hint">功能A 服务地址：<input id="faUrl" value="http://localhost:3001" style="width:240px;margin-left:6px"> <button class="btn ghost" id="faGo">打开</button></div>
+    <iframe class="frame" id="faFrame" src="http://localhost:3001" title="功能A 逻辑链梳理"></iframe>
+  </section>
+
+  <section class="panel" id="completion">
+    <h2 class="page-title">知识补全 · 功能B</h2>
+    <p class="page-sub">从笔记出发生成可追溯、可切换粒度的知识网络。独立应用，需单独启动（见 README）。</p>
+    <div class="frame-hint">功能B 服务地址：<input id="fbUrl" value="http://localhost:4318" style="width:240px;margin-left:6px"> <button class="btn ghost" id="fbGo">打开</button></div>
+    <iframe class="frame" id="fbFrame" src="http://localhost:4318" title="功能B 知识补全"></iframe>
+  </section>
+</div>
+
+<div class="mask" id="settingsMask">
+  <div class="modal">
+    <h3>⚙ API 设置</h3>
+    <div class="field"><span>Base URL（OpenAI-compatible）</span><input id="cfgBaseUrl" placeholder="https://api.deepseek.com"></div>
+    <div class="field"><span>模型名称</span><input id="cfgModel" placeholder="deepseek-chat"></div>
+    <div class="field"><span>API Key</span><input id="cfgKey" type="password" placeholder="sk-…"></div>
+    <p class="hint">支持 DeepSeek / OpenAI / 硅基流动 / OpenRouter / 本地 Ollama(<code>http://127.0.0.1:11434/v1</code>) 等任意 OpenAI-compatible 端点。Key 保存在服务端本地配置文件（已 gitignore）。</p>
+    <div class="row">
+      <button class="btn" id="saveCfg">保存并测试</button>
+      <button class="btn ghost" id="closeSettings">取消</button>
+    </div>
+    <div class="ok" id="cfgOk"></div><div class="err" id="cfgErr"></div>
+  </div>
+</div>
+
+<script>
+const $=s=>document.querySelector(s);
+let notes=[];
+const esc=s=>String(s??"").replace(/[&<>"]/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c]));
+
+async function api(path,opts={}){
+  const r=await fetch(path,{headers:{"content-type":"application/json"},...opts});
+  const d=await r.json().catch(()=>({}));
+  if(!r.ok) throw new Error(d.error||`HTTP ${r.status}`);
+  return d;
+}
+async function refreshHealth(){
+  try{const h=await api("/api/health");const pill=$("#cfgPill");pill.textContent=h.configured?`● ${h.model} 已接入`:"未配置 API";pill.className="pill "+(h.configured?"":"off");}catch{}
+}
+async function refreshCfg(){
+  const c=await api("/api/config");
+  $("#cfgBaseUrl").value=c.baseUrl;$("#cfgModel").value=c.model;$("#cfgKey").placeholder=c.hasKey?`已保存（${c.keyPreview}，留空则不修改）`:"sk-…";
+}
+async function refreshNotes(){
+  const d=await api("/api/notes");notes=d.notes;
+  $("#stats").style.display=notes.length?"flex":"none";
+  $("#statCount").textContent=notes.length;
+  $("#statDomain").textContent=new Set(notes.map(n=>n.domain)).size;
+  renderGrid();renderDomains();
+}
+function renderGrid(){
+  const el=$("#noteGrid");
+  el.innerHTML=notes.map(n=>`<div class="note-card"><h4>${esc(n.title)}</h4><p class="sum">${esc(n.summary)}</p><div class="chips"><span class="chip domain">${esc(n.domain)}</span><span class="chip purpose">${esc(n.purpose)}</span>${(n.tags||[]).map(t=>`<span class="chip">${esc(t)}</span>`).join("")}</div></div>`).join("");
+}
+function renderDomains(){
+  const by={};for(const n of notes)(by[n.domain]=by[n.domain]||[]).push(n);
+  const blocks=Object.entries(by).sort((a,b)=>b[1].length-a[1].length);
+  $("#domainBlocks").innerHTML=blocks.map(([domain,list])=>`<div class="domain-block"><h3>${esc(domain)} <span style="color:#786f66;font-size:13px">（${list.length} 篇）</span></h3><div class="heat">${list.map(n=>`<span>📄 ${esc(n.title.slice(0,14))}</span>`).join("")}</div></div>`).join("")||`<p class="page-sub">还没有笔记。先去「① 笔记库」上传并分析。</p>`;
+}
+
+async function analyzePasted(){
+  const text=$("#pasteBox").value.trim();$("#libraryErr").textContent="";
+  if(!text){$("#libraryErr").textContent="请先粘贴笔记正文。";return}
+  const parts=text.split(/^#{1,3}\s+/m).filter(Boolean);
+  const items=(/^#{1,3}\s+/m.test(text)&&parts.length>1)?parts.map((p,i)=>{const nl=p.indexOf("\n");const title=nl>0?p.slice(0,nl).trim():`笔记 ${i+1}`;const content=nl>0?p.slice(nl+1).trim():p.trim();return{id:`paste_${Date.now()}_${i}`,title,content};}).filter(x=>x.content):[{id:`paste_${Date.now()}_0`,title:"",content:text}];
+  const btn=$("#analyzeBtn");btn.disabled=true;btn.textContent="LLM 正在分析整理…";
+  try{
+    const r=await api("/api/notes/analyze",{method:"POST",body:JSON.stringify({notes:items})});
+    notes=r.notes;refreshNotes();$("#pasteBox").value="";
+  }catch(e){$("#libraryErr").textContent=e.message;}finally{btn.disabled=false;btn.textContent="⚡ 交给 LLM 分析整理";}
+}
+async function handleFiles(files){
+  const items=[];for(const f of files){items.push({id:`file_${f.name}`,title:f.name.replace(/\.(md|txt|markdown)$/i,""),content:await f.text()});}
+  if(!items.length)return;
+  const btn=$("#analyzeBtn");btn.disabled=true;btn.textContent=`LLM 正在分析 ${items.length} 篇…`;
+  try{const r=await api("/api/notes/analyze",{method:"POST",body:JSON.stringify({notes:items})});notes=r.notes;refreshNotes();}
+  catch(e){$("#libraryErr").textContent=e.message;}finally{btn.disabled=false;btn.textContent="⚡ 交给 LLM 分析整理";}
+}
+
+// tabs
+document.querySelectorAll(".tab").forEach(t=>t.onclick=()=>{document.querySelectorAll(".tab").forEach(x=>x.classList.toggle("on",x===t));document.querySelectorAll(".panel").forEach(p=>p.classList.remove("on"));$("#"+t.dataset.page).classList.add("on");});
+$("#analyzeBtn").onclick=analyzePasted;
+$("#clearBtn").onclick=async()=>{if(confirm("清空所有笔记？")){await api("/api/notes/clear",{method:"POST"});refreshNotes();}};
+$("#fileInput").onchange=e=>{handleFiles([...e.target.files]);e.target.value="";};
+$("#openSettings").onclick=()=>{$("#settingsMask").classList.add("on");refreshCfg();};
+$("#closeSettings").onclick=()=>$("#settingsMask").classList.remove("on");
+$("#saveCfg").onclick=async()=>{$("#cfgOk").textContent="";$("#cfgErr").textContent="";try{await api("/api/config",{method:"POST",body:JSON.stringify({baseUrl:$("#cfgBaseUrl").value.trim(),model:$("#cfgModel").value.trim(),apiKey:$("#cfgKey").value.trim()})});await refreshHealth();$("#cfgOk").textContent="已保存";$("#cfgKey").value="";setTimeout(()=>$("#settingsMask").classList.remove("on"),700);}catch(e){$("#cfgErr").textContent=e.message;}};
+$("#faGo").onclick=()=>$("#faFrame").src=$("#faUrl").value.trim();
+$("#fbGo").onclick=()=>$("#fbFrame").src=$("#fbUrl").value.trim();
+
+refreshHealth();refreshNotes();
+</script>
+</body>
+</html>
